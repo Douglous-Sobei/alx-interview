@@ -7,7 +7,6 @@ Problem: You have n number of locked boxes in front of you.
 Task: Write a method that determines if all the boxes can be opened.
 """
 
-
 def can_unlock_all(boxes):
     """
     Function that checks with boolean value if the list type and
@@ -28,4 +27,3 @@ def can_unlock_all(boxes):
             if boxes_checked is False:
                 return boxes_checked
         return True
-
