@@ -28,3 +28,4 @@ def can_unlock_all(boxes):
             if boxes_checked is False:
                 return boxes_checked
         return True
+
