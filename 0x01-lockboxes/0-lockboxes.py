@@ -19,12 +19,12 @@ def can_unlock_all(boxes):
         return False
     elif (len(boxes)) == 0:
         return False
-    for n in range(1, len(boxes) - 1):
+    for n in range(1, len(boxes) -1):
         boxes_checked = False
         for idx in range(len(boxes)):
             boxes_checked = n in boxes[idx] and n != idx
             if boxes_checked:
                 break
-            if boxes_checked is False:
-                return boxes_checked
-        return True
+        if boxes_checked is False:
+            return boxes_checked
+    return True
