@@ -14,6 +14,7 @@ def can_unlock_all(boxes):
     length to invoke two for iterations one to traverse the list
     and the other to compaer if key is idx or not in order to open
     """
+
     if type(boxes) is not list:
         return False
     elif len(boxes) == 0:
