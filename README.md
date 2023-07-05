@@ -1,3 +1,3 @@
 # alx-interview
-Pascal's Triangle
-Lockboxes
+- Pascal's Triangle
+- Lockboxes
