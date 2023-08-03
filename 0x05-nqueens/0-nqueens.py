@@ -1,54 +1,41 @@
-#!/usr/bin/python3
-"""Solving N Queens with Backtracing"""
+#!/usr/bin/env python3
+""" The N queens puzzle is the challenge of placing N non-attacking queens on
+    an N×N chessboard. Write a program that solves the N queens problem.
+    Usage: nqueens N
+        If the user called the program with the wrong number of arguments,
+        print Usage: nqueens N, followed by a new line,
+        and exit with the status 1
+    where N must be an integer greater or equal to 4
+        If N is not an integer, print N must be a number,
+        followed by a new line, and exit with the status 1
+        If N is smaller than 4, print N must be at least 4,
+        followed by a new line, and exit with the status 1
+    The program should print every possible solution to the problem
+        One solution per line
+        You don’t have to print the solutions in a specific order
+    You are only allowed to import the sys module """
 import sys
 
 
-def nqueens(n, y, board):
+def nqueens(n: int):
     """
-    Method: nqueens - place n queens
-            on an n by n board so that
-            no queens are attacking any
-            others.
-    Parameters: n is an int that sets
-                board size and # of queens
-    Return: All possible solutions to
-            placement, in list of lists form
+    backtracking
     """
-    for x in range(n):
-        hold = 0
-        for q in board:
-            if x == q[1]:
-                hold = 1
-                break
-            if y - x == q[0] - q[1]:
-                hold = 1
-                break
-            if x - q[1] == q[0] - y:
-                hold = 1
-                break
-        if hold == 0:
-            board.append([y, x])
-            if y != n - 1:
-                nqueens(n, y + 1, board)
-            else:
-                print(board)
-            del board[-1]
+    matrix = [[0 for x in range(n)] for y in range(n)]
+    print(str(matrix))
 
 
-def main():
-    if len(sys.argv) != 2:
+if __name__ == "__main__":
+    if len(sys.argv) > 2 or len(sys.argv) < 2:
         print("Usage: nqueens N")
-        sys.exit(1)
-    try:
-        n = int(sys.argv[1])
-    except Exception:
-        print('N must be a number')
-        sys.exit(1)
-    if n < 4:
+        exit(1)
+
+    if not sys.argv[1].isdigit():
+        print("N must be a number")
+        exit(1)
+
+    if int(sys.argv[1]) < 4:
         print("N must be at least 4")
-        sys.exit(1)
+        exit(1)
 
-    nqueens(n, 0, [])
-
-if __name__ == '__main__':
-    main()
+    nqueens(int(sys.argv[1]))
